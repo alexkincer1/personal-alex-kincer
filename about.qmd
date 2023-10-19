@@ -1,5 +1,11 @@
 ---
-title: "About"
+title: "About Alex"
 ---
 
-About this site
+## Hobby 
+
+Alex Kincer is a *cheerleader*
+
+## Age
+
+Alex Kincer is 19 years old.

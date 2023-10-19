@@ -9,8 +9,22 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "About Alex",
     "section": "",
-    "text": "About this site"
+    "text": "Alex Kincer is a cheerleader"
+  },
+  {
+    "objectID": "about.html#hobby",
+    "href": "about.html#hobby",
+    "title": "About Alex",
+    "section": "",
+    "text": "Alex Kincer is a cheerleader"
+  },
+  {
+    "objectID": "about.html#age",
+    "href": "about.html#age",
+    "title": "About Alex",
+    "section": "Age",
+    "text": "Age\nAlex Kincer is 19 years old."
   }
 ]
