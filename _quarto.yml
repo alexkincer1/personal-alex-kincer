@@ -3,18 +3,35 @@ project:
   output-dir: docs
 
 website:
-  title: "warmup-alex-kincer"
+  title: "Alex Kincer's Website Warmup"
+  site-path: "/warmup-alex-kincer/"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - href: about.qmd
-        text: Boogly Boo
-      
+        text: About
+      - href: articles/index.qmd
+        text: Articles 
+
+  sidebar:
+    - id: Articles
+      title: "Articles"
+      style: "docked"
+      background: light
+      collapse-level: 2
+      contents: 
+        - text: "Chapter 4 : The Sum of Range"
+          href:  articles/article_01.qmd
+        - text: "Chpater 6 : Groups"
+          href:  articles/article_02.qmd
 
 format:
   html:
     theme: cosmo
+    mainfont: 1.5rem
+    fontcolor: "#d63384"
+    linkcolor: "#d63384"
     css: styles.css
     toc: true
 
