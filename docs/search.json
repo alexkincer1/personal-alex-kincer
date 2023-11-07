@@ -7,6 +7,27 @@
     "text": "Welcome to my Quarto Warmup Website. This serves as a warmup site for CSC 324 at Georgetown College.\nYou can read a bit about me here.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites"
   },
   {
+    "objectID": "articles/article_02.html",
+    "href": "articles/article_02.html",
+    "title": "Chapter 06 : Groups",
+    "section": "",
+    "text": "The standard JavaScript environment provides another data structure called Set. Like an instance of Map, a set holds a collection of values. Unlike Map, it does not associate other values with those—it just tracks which values are part of the set. A value can be part of a set only once—adding it again doesn’t have any effect.This is how your solution code will begin to format the rest of the variables into a collection.\n{class Group {   // Your code here. }}\n\nWrite a class called Group (since Set is already taken). Like Set, it has add, delete, and has methods. Its constructor creates an empty group, add adds a value to the group (but only if it isn’t already a member), delete removes its argument from the group (if it was a member), and has returns a Boolean value indicating whether its argument is a member of the group.\nUse the === operator, or something equivalent such as indexOf, to determine whether two values are the same.\n\nHere are a few hints to help the viewer figure out the problem:\n\nThe easiest way to do this is to store an array of group members in an instance property. The includes or indexOf methods can be used to check whether a given value is in the array.\nYour class’s constructor can set the member collection to an empty array. When add is called, it must check whether the given value is in the array or add it, for example with push, otherwise.\nDeleting an element from an array, in delete, is less straightforward, but you can use filter to create a new array without the value. Don’t forget to overwrite the property holding the members with the newly filtered version of the array.\nThe from method can use a for/of loop to get the values out of the iterable object and call add to put them into a newly created group.\n\n\nIn the remainder of the article we provide a detailed explanation of the solution-code.\nexplaining and individual coding here\nWe are done!"
+  },
+  {
+    "objectID": "articles/article_02.html#introduction-to-the-problem",
+    "href": "articles/article_02.html#introduction-to-the-problem",
+    "title": "Chapter 06 : Groups",
+    "section": "",
+    "text": "The standard JavaScript environment provides another data structure called Set. Like an instance of Map, a set holds a collection of values. Unlike Map, it does not associate other values with those—it just tracks which values are part of the set. A value can be part of a set only once—adding it again doesn’t have any effect.This is how your solution code will begin to format the rest of the variables into a collection.\n{class Group {   // Your code here. }}\n\nWrite a class called Group (since Set is already taken). Like Set, it has add, delete, and has methods. Its constructor creates an empty group, add adds a value to the group (but only if it isn’t already a member), delete removes its argument from the group (if it was a member), and has returns a Boolean value indicating whether its argument is a member of the group.\nUse the === operator, or something equivalent such as indexOf, to determine whether two values are the same.\n\nHere are a few hints to help the viewer figure out the problem:\n\nThe easiest way to do this is to store an array of group members in an instance property. The includes or indexOf methods can be used to check whether a given value is in the array.\nYour class’s constructor can set the member collection to an empty array. When add is called, it must check whether the given value is in the array or add it, for example with push, otherwise.\nDeleting an element from an array, in delete, is less straightforward, but you can use filter to create a new array without the value. Don’t forget to overwrite the property holding the members with the newly filtered version of the array.\nThe from method can use a for/of loop to get the values out of the iterable object and call add to put them into a newly created group.\n\n\nIn the remainder of the article we provide a detailed explanation of the solution-code.\nexplaining and individual coding here\nWe are done!"
+  },
+  {
+    "objectID": "articles/article_02.html#full-code",
+    "href": "articles/article_02.html#full-code",
+    "title": "Chapter 06 : Groups",
+    "section": "Full Code",
+    "text": "Full Code\nThe following code is the full code to “Groups” put together.\nclass Group {\n  constructor() {\n    this.members = [];\n  }\n\n  add(value) {\n    if (!this.has(value)) {\n      this.members.push(value);\n    }\n  }\n\n  delete(value) {\n    this.members = this.members.filter(v =&gt; v !== value);\n  }\n\n  has(value) {\n    return this.members.includes(value);\n  }\n\n  static from(collection) {\n    let group = new Group;\n    for (let value of collection) {\n      group.add(value);\n    }\n    return group;\n  }\n}\n\nlet group = Group.from([10, 20]);\nconsole.log(group.has(10));\n// → true\nconsole.log(group.has(30));\n// → false\ngroup.add(10);\ngroup.delete(10);\nconsole.log(group.has(10));"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About Me",
@@ -40,13 +61,6 @@
     "title": "About Me",
     "section": "Life At Georgetown",
     "text": "Life At Georgetown\nAt Georgetown, I have pursued my interest in Chemistry and continued to progress in the sport of Competitive Cheerleading. In my first year, I completed General Chemistry 1 and 2 with labs corresponding, and completed Computer Science Course 115. In cheerleading, I made the competition squad, competiting in 6 total competitions and winning GC’s 3rd consecutive Mid-South Conference Title. I also cheered all mens basketball games and home football games. In my second year, so far, I have made the competition team, again, and have cheered at Rupp Arena for mens basketball exhibition and cheered all home football games thus far.\n\nIn the picture to the right, you can see me in a stunt at a recent football game. I have just recently been switched positions to a flyer on the team and have, so far, been very successful. I genuinely love cheerleading, and hope to continue GC’s cheer legacy while I am here."
-  },
-  {
-    "objectID": "articles/index.html",
-    "href": "articles/index.html",
-    "title": "Articles",
-    "section": "",
-    "text": "Articles on site."
   },
   {
     "objectID": "articles/article_01.html",
@@ -91,24 +105,10 @@
     "text": "Full Code\nThe following code is the full code to “The Range of Sum” put together.\nfunction range(start, end, step = start &lt; end ? 1 : -1) {\n  let array = [];\n\n  if (step &gt; 0) {\n    for (let i = start; i &lt;= end; i += step) array.push(i);\n  } else {\n    for (let i = start; i &gt;= end; i += step) array.push(i);\n  }\n  return array;\n}\n\nfunction sum(array) {\n  let total = 0;\n  for (let value of array) {\n    total += value;\n  }\n  return total;\n}"
   },
   {
-    "objectID": "articles/article_02.html",
-    "href": "articles/article_02.html",
-    "title": "Chapter 06 : Groups",
+    "objectID": "articles/index.html",
+    "href": "articles/index.html",
+    "title": "Articles",
     "section": "",
-    "text": "The standard JavaScript environment provides another data structure called Set. Like an instance of Map, a set holds a collection of values. Unlike Map, it does not associate other values with those—it just tracks which values are part of the set. A value can be part of a set only once—adding it again doesn’t have any effect.This is how your solution code will begin to format the rest of the variables into a collection.\n{class Group {   // Your code here. }}\n\nWrite a class called Group (since Set is already taken). Like Set, it has add, delete, and has methods. Its constructor creates an empty group, add adds a value to the group (but only if it isn’t already a member), delete removes its argument from the group (if it was a member), and has returns a Boolean value indicating whether its argument is a member of the group.\nUse the === operator, or something equivalent such as indexOf, to determine whether two values are the same.\n\nHere are a few hints to help the viewer figure out the problem:\n\nThe easiest way to do this is to store an array of group members in an instance property. The includes or indexOf methods can be used to check whether a given value is in the array.\nYour class’s constructor can set the member collection to an empty array. When add is called, it must check whether the given value is in the array or add it, for example with push, otherwise.\nDeleting an element from an array, in delete, is less straightforward, but you can use filter to create a new array without the value. Don’t forget to overwrite the property holding the members with the newly filtered version of the array.\nThe from method can use a for/of loop to get the values out of the iterable object and call add to put them into a newly created group.\n\n\nIn the remainder of the article we provide a detailed explanation of the solution-code.\nexplaining and individual coding here\nWe are done!"
-  },
-  {
-    "objectID": "articles/article_02.html#introduction-to-the-problem",
-    "href": "articles/article_02.html#introduction-to-the-problem",
-    "title": "Chapter 06 : Groups",
-    "section": "",
-    "text": "The standard JavaScript environment provides another data structure called Set. Like an instance of Map, a set holds a collection of values. Unlike Map, it does not associate other values with those—it just tracks which values are part of the set. A value can be part of a set only once—adding it again doesn’t have any effect.This is how your solution code will begin to format the rest of the variables into a collection.\n{class Group {   // Your code here. }}\n\nWrite a class called Group (since Set is already taken). Like Set, it has add, delete, and has methods. Its constructor creates an empty group, add adds a value to the group (but only if it isn’t already a member), delete removes its argument from the group (if it was a member), and has returns a Boolean value indicating whether its argument is a member of the group.\nUse the === operator, or something equivalent such as indexOf, to determine whether two values are the same.\n\nHere are a few hints to help the viewer figure out the problem:\n\nThe easiest way to do this is to store an array of group members in an instance property. The includes or indexOf methods can be used to check whether a given value is in the array.\nYour class’s constructor can set the member collection to an empty array. When add is called, it must check whether the given value is in the array or add it, for example with push, otherwise.\nDeleting an element from an array, in delete, is less straightforward, but you can use filter to create a new array without the value. Don’t forget to overwrite the property holding the members with the newly filtered version of the array.\nThe from method can use a for/of loop to get the values out of the iterable object and call add to put them into a newly created group.\n\n\nIn the remainder of the article we provide a detailed explanation of the solution-code.\nexplaining and individual coding here\nWe are done!"
-  },
-  {
-    "objectID": "articles/article_02.html#full-code",
-    "href": "articles/article_02.html#full-code",
-    "title": "Chapter 06 : Groups",
-    "section": "Full Code",
-    "text": "Full Code\nThe following code is the full code to “Groups” put together.\nclass Group {\n  constructor() {\n    this.members = [];\n  }\n\n  add(value) {\n    if (!this.has(value)) {\n      this.members.push(value);\n    }\n  }\n\n  delete(value) {\n    this.members = this.members.filter(v =&gt; v !== value);\n  }\n\n  has(value) {\n    return this.members.includes(value);\n  }\n\n  static from(collection) {\n    let group = new Group;\n    for (let value of collection) {\n      group.add(value);\n    }\n    return group;\n  }\n}\n\nlet group = Group.from([10, 20]);\nconsole.log(group.has(10));\n// → true\nconsole.log(group.has(30));\n// → false\ngroup.add(10);\ngroup.delete(10);\nconsole.log(group.has(10));"
+    "text": "Articles on site."
   }
 ]
