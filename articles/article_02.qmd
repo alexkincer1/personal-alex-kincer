@@ -35,12 +35,60 @@ Here are a few hints to help the viewer figure out the problem:
 
 In the remainder of the article we provide a detailed explanation of the solution-code.
 
+### Step One : Beginning the Coding
+
+The constructor method is a special method of a class for creating and initializing an object instance of that class. The purpose of a constructor is to create a new object and set values for any existing object properties.
 
 
+```js
+constructor() {
+    this.members = [];
+```
 
-explaining and individual coding here
+The add function returns a function. So when you call this: add (); what happens is the code ( ++i) executes and a function is returned. JavaScript, the exclamation mark (!) is a logical operator that negates the truth value of an expression. The push() method of Array instances adds the specified elements to the end of an array and returns the new length of the array.
 
 
+```js
+add(value) {
+    if (!this.has(value)) {
+      this.members.push(value);
+    }
+}
+``` 
+
+### Step Two : Deleting and Filtering
+
+In JavaScript, the delete operator is used to remove a property from an object. If the property’s value is an object and there are no more references to the object, the object held by that property is eventually released automatically. In addition, filter() is a built-in method that allows you to create a new array with all elements that pass a certain test provided by a function. The original array is not modified. Finally, The !== operator in JavaScript is called the strict inequality operator. It checks whether its two operands are not equal and returns a Boolean result.
+
+```js
+delete(value) {
+    this.members = this.members.filter(v => v !== value);
+  }
+```
+
+### Step Three : Has & Return
+
+In JavaScript, has is a method that is used to check whether a Set object contains a specified element or not. The has method returns a boolean value of true if the element is present in the Set object, and false otherwise.
+
+```js
+has(value) {
+    return this.members.includes(value);
+  }
+```
+
+### Final Step :
+
+A static variable is a special variable that you can use in a function, and it saves the data between calls, and it does not delete it between calls. The let, for, and return functions still provide the same outcomes as stated earlier.
+
+```js
+static from(collection) {
+    let group = new Group;
+    for (let value of collection) {
+      group.add(value);
+    }
+    return group;
+  }
+```
 
 We are done!
 
@@ -76,13 +124,4 @@ class Group {
     return group;
   }
 }
-
-let group = Group.from([10, 20]);
-console.log(group.has(10));
-// → true
-console.log(group.has(30));
-// → false
-group.add(10);
-group.delete(10);
-console.log(group.has(10));
 ```

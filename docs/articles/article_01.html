@@ -173,14 +173,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#introduction-to-the-problem" id="toc-introduction-to-the-problem" class="nav-link active" data-scroll-target="#introduction-to-the-problem">Introduction to the Problem</a></li>
-  <li><a href="#reading-in-the-data" id="toc-reading-in-the-data" class="nav-link" data-scroll-target="#reading-in-the-data">Reading in the Data</a>
-  <ul class="collapse">
-  <li><a href="#determining-the-pathname-of-the-input-file" id="toc-determining-the-pathname-of-the-input-file" class="nav-link" data-scroll-target="#determining-the-pathname-of-the-input-file">Determining the Pathname of the Input File</a></li>
-  <li><a href="#reading-in-the-input-file" id="toc-reading-in-the-input-file" class="nav-link" data-scroll-target="#reading-in-the-input-file">Reading in the Input File</a></li>
-  <li><a href="#processing-the-input-file" id="toc-processing-the-input-file" class="nav-link" data-scroll-target="#processing-the-input-file">Processing the Input File</a></li>
-  </ul></li>
-  <li><a href="#looping-to-compute-pack-totals" id="toc-looping-to-compute-pack-totals" class="nav-link" data-scroll-target="#looping-to-compute-pack-totals">Looping to Compute Pack-Totals</a></li>
-  <li><a href="#reporting-the-maximum-pack-total" id="toc-reporting-the-maximum-pack-total" class="nav-link" data-scroll-target="#reporting-the-maximum-pack-total">Reporting the Maximum Pack-Total</a></li>
+  <li><a href="#generating-the-range" id="toc-generating-the-range" class="nav-link" data-scroll-target="#generating-the-range">Generating the Range</a></li>
+  <li><a href="#step-one-creating-the-array" id="toc-step-one-creating-the-array" class="nav-link" data-scroll-target="#step-one-creating-the-array">Step One : Creating the Array</a></li>
+  <li><a href="#step-two-return-close" id="toc-step-two-return-close" class="nav-link" data-scroll-target="#step-two-return-close">Step Two : Return &amp; Close</a></li>
+  <li><a href="#step-three-beginning-the-next-function" id="toc-step-three-beginning-the-next-function" class="nav-link" data-scroll-target="#step-three-beginning-the-next-function">Step Three : Beginning the Next Function</a></li>
+  <li><a href="#final-step-returning-the-total" id="toc-final-step-returning-the-total" class="nav-link" data-scroll-target="#final-step-returning-the-total">Final Step : Returning the Total</a></li>
   <li><a href="#full-code" id="toc-full-code" class="nav-link" data-scroll-target="#full-code">Full Code</a></li>
   </ul>
 </nav>
@@ -205,8 +202,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="introduction-to-the-problem" class="level2">
-<h2 class="anchored" data-anchor-id="introduction-to-the-problem">Introduction to the Problem</h2>
+<section id="introduction-to-the-problem" class="level3">
+<h3 class="anchored" data-anchor-id="introduction-to-the-problem">Introduction to the Problem</h3>
 <p>The introduction of the Eloquent Javascript book frequently calls attention to objects and arrays. Chapter 4 discusses the properties within these subjects and indirectly expemplifies how to compute the sum of a range of numbers:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -229,103 +226,70 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </blockquote>
 <p>In the remainder of the article we provide a detailed explanation of the solution-code.</p>
 </section>
-<section id="reading-in-the-data" class="level2">
-<h2 class="anchored" data-anchor-id="reading-in-the-data">Reading in the Data</h2>
-<p>Suppose that the problem data is contained in a file called <code>input.txt</code> located in the same dirctory as the JavaScript file, for example:</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>input.txt</strong></pre>
-</div>
-<pre><code>1000
-2000
-3000
-
-4000
-
-5000
-6000
-
-7000
-8000
-9000
-
-10000</code></pre>
-</div>
-<p>We will be importing data from a source outside the Node envionment, so we’ll be working with file-systems. Accordingly, we import the <code>fs</code> and <code>path</code> modules:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> fs <span class="op">=</span> <span class="pp">require</span>(<span class="st">"fs"</span>)<span class="op">;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> path <span class="op">=</span> <span class="pp">require</span>(<span class="st">"path"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="determining-the-pathname-of-the-input-file" class="level3">
-<h3 class="anchored" data-anchor-id="determining-the-pathname-of-the-input-file">Determining the Pathname of the Input File</h3>
-<p>We now use the functionality of the <code>path</code> module to construct a string that gives the pathname of the <code>input.txt</code> file.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode .js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> targetFile <span class="op">=</span> path<span class="op">.</span><span class="fu">resolve</span>(<span class="bu">__dirname</span><span class="op">,</span> <span class="st">"input.txt"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In the above code, <code>__dirname</code> evaluates to the full name of the directory containing the file being run, and <code>path.resolve</code> puts it together with the second argument to get the full pathnamename of the input file.</p>
+<section id="generating-the-range" class="level3">
+<h3 class="anchored" data-anchor-id="generating-the-range">Generating the Range</h3>
+<p>When specifying three integers as range (start, stop, step), it generates a series of numbers start &lt;= i &lt; stop, increasing by step. If you provide a negative value for the step argument, the sequence will decrease.</p>
+<p><code>{function range(start, end, step = start &lt; end ? 1 : -1)}</code></p>
 </section>
-<section id="reading-in-the-input-file" class="level3">
-<h3 class="anchored" data-anchor-id="reading-in-the-input-file">Reading in the Input File</h3>
-<p>Next, we use the <code>fs</code> module tp read in the file, and the we and convert it to a string:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> input <span class="op">=</span> fs<span class="op">.</span><span class="fu">readFileSync</span>(targetFile)<span class="op">.</span><span class="fu">toString</span>()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="step-one-creating-the-array" class="level3">
+<h3 class="anchored" data-anchor-id="step-one-creating-the-array">Step One : Creating the Array</h3>
+<p>The let declaration declares re-assignable, block-scoped local variables, optionally initializing each to a value. In JavaScript, arrays aren’t primitives but are instead Array objects with the following core characteristics: JavaScript arrays are resizable and can contain a mix of different data types.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> array <span class="op">=</span> []<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We can now apply the if else function :</p>
+<p>Use the if statement to specify a block of JavaScript code to be executed if a condition is true. Use the else statement to specify a block of code to be executed if the condition is false.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span> (step <span class="op">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> start<span class="op">;</span> i <span class="op">&lt;=</span> end<span class="op">;</span> i <span class="op">+=</span> step) array<span class="op">.</span><span class="fu">push</span>(i)<span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> start<span class="op">;</span> i <span class="op">&gt;=</span> end<span class="op">;</span> i <span class="op">+=</span> step) array<span class="op">.</span><span class="fu">push</span>(i)<span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The above information from the If else function will then be returned to create the arrays beginning.</p>
 </section>
-<section id="processing-the-input-file" class="level3">
-<h3 class="anchored" data-anchor-id="processing-the-input-file">Processing the Input File</h3>
-<p>We wish to convert the string into an array of values, where each element of the array is the calorie-value of an item.</p>
-<p>To this end, we must split the string along the newlines within it. To this end we define a splitting function:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> splitLines <span class="op">=</span> str <span class="kw">=&gt;</span> str<span class="op">.</span><span class="fu">split</span>(<span class="ss">/</span><span class="sc">\n</span><span class="ss">/</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Note the use of the Javacript regular expression <code>/\n/</code>). (In Javascript regular expressions to not start life as strings, as they do in R. Instead they are a special type of object, delimited by the forward-slash: <code>/</code>. For more on regular expressions in JavaScript, see <a href="https://eloquentjavascript.net/09_regexp.html">Chapter 8</a> of the <em>Eloquent JavaScript</em> textbook.)</p>
-<p>We now apply the function to split the input into an array of strings;</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> caloriesAsStrings <span class="op">=</span> <span class="fu">splitLines</span>(input)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The array is full of strings. (Some of them are the empty strinf—wherever there were two consecutive newlines in the oringal input to separate the pack of one elf from the pack of the next elf.)</p>
-<p>We need to convert them to numbers. To that end, we apply the higher-order array-method <code>map()</code> to the <code>caloriesAsStrings</code>:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> calories <span class="op">=</span> caloriesAsStrings<span class="op">.</span><span class="fu">map</span>(str <span class="kw">=&gt;</span> <span class="pp">parseInt</span>(str))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>It is important to note that <code>parseInt()</code> converts the empty string to the value <code>NaN</code>: “not a number”.</p>
+<section id="step-two-return-close" class="level3">
+<h3 class="anchored" data-anchor-id="step-two-return-close">Step Two : Return &amp; Close</h3>
+<p>The return statement is used when a function is ready to return a value to its caller. A } bracket is entered at the end of the code to draw an imaginary line at the end of the coding sequence. This makes sure to keep the things that go together, together.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> array<span class="op">;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="step-three-beginning-the-next-function" class="level3">
+<h3 class="anchored" data-anchor-id="step-three-beginning-the-next-function">Step Three : Beginning the Next Function</h3>
+<p>The SUM function is a mathematical function that totals the values supplied to it. These values can be numbers, cell references, ranges, arrays, or constants. The function can handle up to 255 individual arguments. The SUM function ignores records that contain Null fields. The function is entered by typing =SUM followed by the values to be summed. Adding the ‘(array)’ after the SUM call, indicates that the array will be what the call is applied to.</p>
+<p>You then place a “{” to open up the coding area for what is to come after to complete this problem.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">sum</span>(array) {</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We now apply another ‘let’ call and add the ‘for’ function :</p>
+<p>In JavaScript, the for statement is used to execute a block of code repeatedly. The for loop has three optional expressions: initialization, condition, and final-expression.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> total <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> value <span class="kw">of</span> array) {</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    total <span class="op">+=</span> value<span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The += operator in JavaScript is called the addition assignment operator. It performs addition on the two operands and assigns the result to the left operand. The expression x += y is equivalent to x = x + y, except that the expression x is only evaluated once. The operator can perform either numeric addition or string concatenation, depending on the types of the operands.</p>
 </section>
-<section id="looping-to-compute-pack-totals" class="level2">
-<h2 class="anchored" data-anchor-id="looping-to-compute-pack-totals">Looping to Compute Pack-Totals</h2>
-<p>The array <code>calories</code> consists of calorie counts, with <code>NaNs</code> separatng items in different packs. We’ll work with this array to find the sums of the calorie-counts in each pack.</p>
-<p>First, we make an array to hold the total calories for each pack:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> packTotals <span class="op">=</span> []<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>One by one, we pull items from the beginning of the calories array, making the pack totals:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (calories<span class="op">.</span><span class="at">length</span> <span class="op">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> packTotal <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> currentItem <span class="op">=</span> calories<span class="op">.</span><span class="fu">shift</span>()<span class="op">;</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> (<span class="op">!</span><span class="pp">isNaN</span>(currentItem)) {</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    packTotal <span class="op">+=</span> currentItem<span class="op">;</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    currentItem <span class="op">=</span> calories<span class="op">.</span><span class="fu">shift</span>()<span class="op">;</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  packTotals<span class="op">.</span><span class="fu">push</span>(packTotal)<span class="op">;</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><code>packTotals</code> is now an array of the total calories in each pack.</p>
-</section>
-<section id="reporting-the-maximum-pack-total" class="level2">
-<h2 class="anchored" data-anchor-id="reporting-the-maximum-pack-total">Reporting the Maximum Pack-Total</h2>
-<p>Finally, we compute the maximum of the pack totals:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> maxPackTotal <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">max</span>(<span class="op">...</span>packTotals)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>(Math.max() takes as arguments all of the numbers of whihc we wish to find the maximum. Note the use of the three-dot notation notation <code>...</code> to convert the single array into separate arguments. For a review of the three-dot notation, see the section <a href="https://eloquentjavascript.net/04_data.html#h_hX9DkIBp9y">Rest Parameters</a> in <em>Eloquent JavaScript</em>. )</p>
-<p>Finally, we return the total value:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> total<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="final-step-returning-the-total" class="level3">
+<h3 class="anchored" data-anchor-id="final-step-returning-the-total">Final Step : Returning the Total</h3>
+<p>One by one, we piece each chunk of coding together and, finally, we return the total value:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> total<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We are done!</p>
 </section>
-<section id="full-code" class="level2">
-<h2 class="anchored" data-anchor-id="full-code">Full Code</h2>
+<section id="full-code" class="level3">
+<h3 class="anchored" data-anchor-id="full-code">Full Code</h3>
 <p>The following code is the full code to “The Range of Sum” put together.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">range</span>(start<span class="op">,</span> end<span class="op">,</span> step <span class="op">=</span> start <span class="op">&lt;</span> end <span class="op">?</span> <span class="dv">1</span> <span class="op">:</span> <span class="op">-</span><span class="dv">1</span>) {</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> array <span class="op">=</span> []<span class="op">;</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (step <span class="op">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> start<span class="op">;</span> i <span class="op">&lt;=</span> end<span class="op">;</span> i <span class="op">+=</span> step) array<span class="op">.</span><span class="fu">push</span>(i)<span class="op">;</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> start<span class="op">;</span> i <span class="op">&gt;=</span> end<span class="op">;</span> i <span class="op">+=</span> step) array<span class="op">.</span><span class="fu">push</span>(i)<span class="op">;</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> array<span class="op">;</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">sum</span>(array) {</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> total <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> value <span class="kw">of</span> array) {</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    total <span class="op">+=</span> value<span class="op">;</span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> total<span class="op">;</span></span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">range</span>(start<span class="op">,</span> end<span class="op">,</span> step <span class="op">=</span> start <span class="op">&lt;</span> end <span class="op">?</span> <span class="dv">1</span> <span class="op">:</span> <span class="op">-</span><span class="dv">1</span>) {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> array <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (step <span class="op">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> start<span class="op">;</span> i <span class="op">&lt;=</span> end<span class="op">;</span> i <span class="op">+=</span> step) array<span class="op">.</span><span class="fu">push</span>(i)<span class="op">;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> start<span class="op">;</span> i <span class="op">&gt;=</span> end<span class="op">;</span> i <span class="op">+=</span> step) array<span class="op">.</span><span class="fu">push</span>(i)<span class="op">;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> array<span class="op">;</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">sum</span>(array) {</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> total <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> value <span class="kw">of</span> array) {</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    total <span class="op">+=</span> value<span class="op">;</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> total<span class="op">;</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

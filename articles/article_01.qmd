@@ -2,7 +2,7 @@
 title: "Chapter 04 : The Sum of Range"
 ---
 
-## Introduction to the Problem
+### Introduction to the Problem
 
 The introduction of the Eloquent Javascript book frequently calls attention to objects and arrays. Chapter 4 discusses the properties within these subjects and indirectly expemplifies how to compute the sum of a range of numbers:
 
@@ -13,7 +13,7 @@ The introduction of the Eloquent Javascript book frequently calls attention to o
 <blockquote>
 Write a range function that takes two arguments, start and end, and returns an array containing all the numbers from start up to (and including) end.
 
-Next, write a sum function that takes an array of numbers and returns the sum of these numbers. Run the example program and see whether it does indeed return 55.
+Next, write a sum function that takes an array of numbers and returns the sum of these numbers. Run the example program and see whether it does indeed return 55. 
 ```
 
 ```
@@ -34,119 +34,73 @@ Here are a few hints to help the viewer figure out the problem:
 
 In the remainder of the article we provide a detailed explanation of the solution-code.
 
-## Reading in the Data
+### Generating the Range
 
-Suppose that the problem data is contained in a file called `input.txt` located in the same dirctory as the JavaScript file, for example:
+When specifying three integers as range (start, stop, step), it generates a series of numbers start <= i < stop, increasing by step. If you provide a negative value for the step argument, the sequence will decrease. 
 
-```{filename="input.txt"}
-1000
-2000
-3000
-
-4000
-
-5000
-6000
-
-7000
-8000
-9000
-
-10000
+```{function range(start, end, step = start < end ? 1 : -1)}
 ```
 
-We will be importing data from a source outside the Node envionment, so we'll be working with file-systems.  Accordingly, we import the `fs` and `path` modules:
+### Step One : Creating the Array
+
+The let declaration declares re-assignable, block-scoped local variables, optionally initializing each to a value. 
+In JavaScript, arrays aren't primitives but are instead Array objects with the following core characteristics: JavaScript arrays are resizable and can contain a mix of different data types. 
 
 ```js
-const fs = require("fs");
-const path = require("path");
+let array = [];
 ```
 
-### Determining the Pathname of the Input File
+We can now apply the if else function :
 
-We now use the functionality of the `path` module to construct a string that gives the pathname of the `input.txt` file.  
+Use the if statement to specify a block of JavaScript code to be executed if a condition is true. Use the else statement to specify a block of code to be executed if the condition is false.  
 
-```.js
-let targetFile = path.resolve(__dirname, "input.txt");
-```
-
-In the above code, `__dirname` evaluates to the full name of the directory containing the file being run, and `path.resolve` puts it together with the second argument
-to get the full pathnamename of the input file.
-
-### Reading in the Input File
-
-Next, we use the `fs` module tp read in the file, and the we and convert it to a string:
-
-```js
-const input = fs.readFileSync(targetFile).toString();
-```
-
-### Processing the Input File
-
-We wish to convert the string into an array of values, where each element of the array is the calorie-value of an item.
-
-To this end, we must split the string along the newlines within it.  To this end we define a splitting function:
-
-```js
-const splitLines = str => str.split(/\n/);
-```
-
-Note the use of the Javacript regular expression `/\n/`).  (In Javascript regular expressions to not start life as strings, as they do in R.  Instead they are a special type of object, delimited by the forward-slash: `/`.  For more on regular expressions in JavaScript, see [Chapter 8](https://eloquentjavascript.net/09_regexp.html) of the *Eloquent JavaScript* textbook.)
-
-We now apply the function to split the input into an array of strings;
-
-```js
-const caloriesAsStrings = splitLines(input);
-```
-
-The array is full of strings.  (Some of them are the empty strinf---wherever there were two consecutive newlines in the oringal input to separate the pack of one elf from the pack of the next elf.)
-
-We need to convert them to numbers.  To that end, we apply the higher-order array-method `map()` to the `caloriesAsStrings`:
-
-```js
-const calories = caloriesAsStrings.map(str => parseInt(str));
-```
-
-It is important to note that `parseInt()` converts the empty string to the value `NaN`:  "not a number".
-
-## Looping to Compute Pack-Totals
-
-The array `calories` consists of calorie counts, with `NaNs` separatng items in different packs.  We'll work with this array to find the sums of the calorie-counts in each pack.
-
-First, we make an array to hold the total calories for each pack:
-
-```js
-const packTotals = [];
-```
-
-
-One by one, we pull items from the beginning of the calories array, making the pack totals:
-
-```js
-while (calories.length > 0) {
-  let packTotal = 0;
-  let currentItem = calories.shift();
-  while (!isNaN(currentItem)) {
-    packTotal += currentItem;
-    currentItem = calories.shift();
+```js 
+ if (step > 0) {
+    for (let i = start; i <= end; i += step) array.push(i);
+  } else {
+    for (let i = start; i >= end; i += step) array.push(i);
   }
-  packTotals.push(packTotal);
-};
 ```
 
-`packTotals` is now an array of the total calories in each pack.
+The above information from the If else function will then be returned to create the arrays beginning.
 
-## Reporting the Maximum Pack-Total
+### Step Two : Return & Close
 
-Finally, we compute the maximum of the pack totals:
+The return statement is used when a function is ready to return a value to its caller. A } bracket is entered at the end of the code to draw an imaginary line at the end of the coding sequence. This makes sure to keep the things that go together, together.
 
 ```js
-let maxPackTotal = Math.max(...packTotals);
+return array;
+}
 ```
 
-(Math.max() takes as arguments all of the numbers of whihc we wish to find the maximum.  Note the use of the three-dot notation notation `...` to convert the single array into separate arguments. For a review of the three-dot notation, see the section [Rest Parameters](https://eloquentjavascript.net/04_data.html#h_hX9DkIBp9y) in *Eloquent JavaScript*. )
+### Step Three : Beginning the Next Function
 
-Finally, we return the total value:
+The SUM function is a mathematical function that totals the values supplied to it. These values can be numbers, cell references, ranges, arrays, or constants. The function can handle up to 255 individual arguments. The SUM function ignores records that contain Null fields. The function is entered by typing =SUM followed by the values to be summed. Adding the '(array)' after the SUM call, indicates that the array will be what the call is applied to.
+
+You then place a "{" to open up the coding area for what is to come after to complete this problem.
+
+```js
+function sum(array) {
+```
+
+We now apply another 'let' call and add the 'for' function :
+
+
+In JavaScript, the for statement is used to execute a block of code repeatedly. The for loop has three optional expressions: initialization, condition, and final-expression.  
+
+```js
+let total = 0;
+  for (let value of array) {
+    total += value;
+  }
+```
+
+The += operator in JavaScript is called the addition assignment operator. It performs addition on the two operands and assigns the result to the left operand. The expression x += y is equivalent to x = x + y, except that the expression x is only evaluated once. The operator can perform either numeric addition or string concatenation, depending on the types of the operands.
+
+
+### Final Step : Returning the Total 
+
+One by one, we piece each chunk of coding together and, finally, we return the total value:
 
 ```js
 return total;
@@ -154,7 +108,7 @@ return total;
 
 We are done!
 
-## Full Code
+### Full Code
 
 The following code is the full code to "The Range of Sum" put together.
 
