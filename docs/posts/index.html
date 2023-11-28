@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Alex Kincer’s Website Warmup - Chapter 04 : The Sum of Range</title>
+<title>Alex Kincer’s Website Warmup - Alex’s Content</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,6 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -93,7 +61,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -142,21 +141,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../articles/article_01.html">Chapter 4 : The Sum of Range</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../posts/index.html">Posts</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../articles/article_01.html" class="sidebar-item-text sidebar-link active">
+  <a href="../articles/article_01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chapter 4 : The Sum of Range</span></a>
   </div>
 </li>
@@ -174,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../posts/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../posts/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Posts</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -219,26 +218,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#introduction-to-the-problem" id="toc-introduction-to-the-problem" class="nav-link active" data-scroll-target="#introduction-to-the-problem">Introduction to the Problem</a></li>
-  <li><a href="#generating-the-range" id="toc-generating-the-range" class="nav-link" data-scroll-target="#generating-the-range">Generating the Range</a></li>
-  <li><a href="#step-one-creating-the-array" id="toc-step-one-creating-the-array" class="nav-link" data-scroll-target="#step-one-creating-the-array">Step One : Creating the Array</a></li>
-  <li><a href="#step-two-return-close" id="toc-step-two-return-close" class="nav-link" data-scroll-target="#step-two-return-close">Step Two : Return &amp; Close</a></li>
-  <li><a href="#step-three-beginning-the-next-function" id="toc-step-three-beginning-the-next-function" class="nav-link" data-scroll-target="#step-three-beginning-the-next-function">Step Three : Beginning the Next Function</a></li>
-  <li><a href="#final-step-returning-the-total" id="toc-final-step-returning-the-total" class="nav-link" data-scroll-target="#final-step-returning-the-total">Final Step : Returning the Total</a></li>
-  <li><a href="#full-code" id="toc-full-code" class="nav-link" data-scroll-target="#full-code">Full Code</a></li>
-  </ul>
-</nav>
-    </div>
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div><div class="category" data-category="IPEP test">IPEP test <span class="quarto-category-count">(1)</span></div><div class="category" data-category="colors">colors <span class="quarto-category-count">(1)</span></div><div class="category" data-category="math">math <span class="quarto-category-count">(1)</span></div><div class="category" data-category="mental health">mental health <span class="quarto-category-count">(1)</span></div><div class="category" data-category="opinionated">opinionated <span class="quarto-category-count">(1)</span></div><div class="category" data-category="personality">personality <span class="quarto-category-count">(1)</span></div><div class="category" data-category="programming">programming <span class="quarto-category-count">(1)</span></div><div class="category" data-category="psychology">psychology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="quarto">quarto <span class="quarto-category-count">(1)</span></div><div class="category" data-category="rank">rank <span class="quarto-category-count">(1)</span></div><div class="category" data-category="social media">social media <span class="quarto-category-count">(1)</span></div><div class="category" data-category="soda pop">soda pop <span class="quarto-category-count">(1)</span></div><div class="category" data-category="substantive">substantive <span class="quarto-category-count">(1)</span></div><div class="category" data-category="youth">youth <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapter 04 : The Sum of Range</h1>
+<h1 class="title">Alex’s Content</h1>
 </div>
 
 
@@ -253,99 +240,219 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="introduction-to-the-problem" class="level3">
-<h3 class="anchored" data-anchor-id="introduction-to-the-problem">Introduction to the Problem</h3>
-<p>The introduction of the Eloquent Javascript book frequently calls attention to objects and arrays. Chapter 4 discusses the properties within these subjects and indirectly expemplifies how to compute the sum of a range of numbers:</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>console.log(sum(range(1, 10)));</strong></pre>
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="mental health,social media,youth" data-listing-date-sort="1701147600000" data-listing-file-modified-sort="1701200529979" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<div class="thumbnail">
+<p><a href="../posts/Protect your mental health before your social status/index.html"> <img src="../posts/Protect your mental health before your social status/social-suicide-pic.jpg" class="thumbnail-image"> </a></p>
 </div>
-<pre><code></code></pre>
+<div class="body">
+<a href="../posts/Protect your mental health before your social status/index.html">
+<h3 class="no-anchor listing-title">
+Protect your mental health before your social status
+</h3>
+<div class="listing-subtitle">
+
 </div>
-<blockquote class="blockquote">
-<p>Write a range function that takes two arguments, start and end, and returns an array containing all the numbers from start up to (and including) end.</p>
-<p>Next, write a sum function that takes an array of numbers and returns the sum of these numbers. Run the example program and see whether it does indeed return 55.</p>
-<pre><code></code></pre>
-<p>Here are a few hints to help the viewer figure out the problem:</p>
-<ul>
-<li><p>Building up an array is most easily done by first initializing a binding to [] (a fresh, empty array) and repeatedly calling its push method to add a value. Don’t forget to return the array at the end of the function.</p></li>
-<li><p>Since the end boundary is inclusive, you’ll need to use the &lt;= operator rather than &lt; to check for the end of your loop.</p></li>
-<li><p>The step parameter can be an optional parameter that defaults (using the = operator)to 1.</p></li>
-<li><p>Having range understand negative step values is probably best done by writing two separate loops—one for counting up and one for counting down—because the comparison that checks whether the loop is finished needs to be &gt;= rather than &lt;= when counting downward.</p></li>
-<li><p>It might also be worthwhile to use a different default step, namely, -1, when the end of the range is smaller than the start. That way, range(5, 2) returns something meaningful, rather than getting stuck in an infinite loop. It is possible to refer to previous parameters in the default value of a parameter.</p></li>
-</ul>
-</blockquote>
-<p>In the remainder of the article we provide a detailed explanation of the solution-code.</p>
-</section>
-<section id="generating-the-range" class="level3">
-<h3 class="anchored" data-anchor-id="generating-the-range">Generating the Range</h3>
-<p>When specifying three integers as range (start, stop, step), it generates a series of numbers start &lt;= i &lt; stop, increasing by step. If you provide a negative value for the step argument, the sequence will decrease.</p>
-<p><code>{function range(start, end, step = start &lt; end ? 1 : -1)}</code></p>
-</section>
-<section id="step-one-creating-the-array" class="level3">
-<h3 class="anchored" data-anchor-id="step-one-creating-the-array">Step One : Creating the Array</h3>
-<p>The let declaration declares re-assignable, block-scoped local variables, optionally initializing each to a value. In JavaScript, arrays aren’t primitives but are instead Array objects with the following core characteristics: JavaScript arrays are resizable and can contain a mix of different data types.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> array <span class="op">=</span> []<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>We can now apply the if else function :</p>
-<p>Use the if statement to specify a block of JavaScript code to be executed if a condition is true. Use the else statement to specify a block of code to be executed if the condition is false.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span> (step <span class="op">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> start<span class="op">;</span> i <span class="op">&lt;=</span> end<span class="op">;</span> i <span class="op">+=</span> step) array<span class="op">.</span><span class="fu">push</span>(i)<span class="op">;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> start<span class="op">;</span> i <span class="op">&gt;=</span> end<span class="op">;</span> i <span class="op">+=</span> step) array<span class="op">.</span><span class="fu">push</span>(i)<span class="op">;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The above information from the If else function will then be returned to create the arrays beginning.</p>
-</section>
-<section id="step-two-return-close" class="level3">
-<h3 class="anchored" data-anchor-id="step-two-return-close">Step Two : Return &amp; Close</h3>
-<p>The return statement is used when a function is ready to return a value to its caller. A } bracket is entered at the end of the code to draw an imaginary line at the end of the coding sequence. This makes sure to keep the things that go together, together.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> array<span class="op">;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="step-three-beginning-the-next-function" class="level3">
-<h3 class="anchored" data-anchor-id="step-three-beginning-the-next-function">Step Three : Beginning the Next Function</h3>
-<p>The SUM function is a mathematical function that totals the values supplied to it. These values can be numbers, cell references, ranges, arrays, or constants. The function can handle up to 255 individual arguments. The SUM function ignores records that contain Null fields. The function is entered by typing =SUM followed by the values to be summed. Adding the ‘(array)’ after the SUM call, indicates that the array will be what the call is applied to.</p>
-<p>You then place a “{” to open up the coding area for what is to come after to complete this problem.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">sum</span>(array) {</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>We now apply another ‘let’ call and add the ‘for’ function :</p>
-<p>In JavaScript, the for statement is used to execute a block of code repeatedly. The for loop has three optional expressions: initialization, condition, and final-expression.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> total <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> value <span class="kw">of</span> array) {</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    total <span class="op">+=</span> value<span class="op">;</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The += operator in JavaScript is called the addition assignment operator. It performs addition on the two operands and assigns the result to the left operand. The expression x += y is equivalent to x = x + y, except that the expression x is only evaluated once. The operator can perform either numeric addition or string concatenation, depending on the types of the operands.</p>
-</section>
-<section id="final-step-returning-the-total" class="level3">
-<h3 class="anchored" data-anchor-id="final-step-returning-the-total">Final Step : Returning the Total</h3>
-<p>One by one, we piece each chunk of coding together and, finally, we return the total value:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> total<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>We are done!</p>
-</section>
-<section id="full-code" class="level3">
-<h3 class="anchored" data-anchor-id="full-code">Full Code</h3>
-<p>The following code is the full code to “The Range of Sum” put together.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">range</span>(start<span class="op">,</span> end<span class="op">,</span> step <span class="op">=</span> start <span class="op">&lt;</span> end <span class="op">?</span> <span class="dv">1</span> <span class="op">:</span> <span class="op">-</span><span class="dv">1</span>) {</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> array <span class="op">=</span> []<span class="op">;</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (step <span class="op">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> start<span class="op">;</span> i <span class="op">&lt;=</span> end<span class="op">;</span> i <span class="op">+=</span> step) array<span class="op">.</span><span class="fu">push</span>(i)<span class="op">;</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> start<span class="op">;</span> i <span class="op">&gt;=</span> end<span class="op">;</span> i <span class="op">+=</span> step) array<span class="op">.</span><span class="fu">push</span>(i)<span class="op">;</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> array<span class="op">;</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">sum</span>(array) {</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> total <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> value <span class="kw">of</span> array) {</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    total <span class="op">+=</span> value<span class="op">;</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> total<span class="op">;</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('mental health'); return false;">
+mental health
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('social media'); return false;">
+social media
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('youth'); return false;">
+youth
+</div>
+</div>
+<a href="../posts/Protect your mental health before your social status/index.html">
+<div class="listing-description">
+<p>Youth are more concerned about their own social suicide than their classmates’ feelings</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/Protect your mental health before your social status/index.html">
+<div class="listing-date">
+Nov 28, 2023
+</div>
+<div class="listing-author">
+Alex Kincer
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="quarto,programming,substantive" data-listing-date-sort="1700974800000" data-listing-file-modified-sort="1701207239632" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="thumbnail">
+<p><a href="../posts/minor-coding-enhancement/index.html"> <img src="../posts/minor-coding-enhancement/pink.jpg" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../posts/minor-coding-enhancement/index.html">
+<h3 class="no-anchor listing-title">
+Making a Minor Enhancement to Website
+</h3>
+<div class="listing-subtitle">
 
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('quarto'); return false;">
+quarto
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('programming'); return false;">
+programming
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('substantive'); return false;">
+substantive
+</div>
+</div>
+<a href="../posts/minor-coding-enhancement/index.html">
+<div class="listing-description">
+<p>Using Quarto to change the font color of my website to hot pink!</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/minor-coding-enhancement/index.html">
+<div class="listing-date">
+Nov 26, 2023
+</div>
+<div class="listing-author">
+Homer White
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="psychology,IPEP test,personality" data-listing-date-sort="1696219200000" data-listing-file-modified-sort="1701206665956" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<div class="thumbnail">
+<p><a href="../posts/5-Factor-Model-Personality-Paper/index.html"> <img src="../posts/5-Factor-Model-Personality-Paper/5FactorModel.png" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../posts/5-Factor-Model-Personality-Paper/index.html">
+<h3 class="no-anchor listing-title">
+Psychology Personality Paper
+</h3>
+<div class="listing-subtitle">
 
-</section>
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('psychology'); return false;">
+psychology
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('IPEP test'); return false;">
+IPEP test
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('personality'); return false;">
+personality
+</div>
+</div>
+<a href="../posts/5-Factor-Model-Personality-Paper/index.html">
+<div class="listing-description">
+<p>A description of my personality based on the Five Factor Model.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/5-Factor-Model-Personality-Paper/index.html">
+<div class="listing-date">
+Oct 2, 2023
+</div>
+<div class="listing-author">
+Alex Kincer
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="math,colors" data-listing-date-sort="1662350400000" data-listing-file-modified-sort="1700168961589" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<div class="thumbnail">
+<p><a href="../posts/2022-09-05-pink-parabolas/index.html"> <img src="../posts/2022-09-05-pink-parabolas/banner.jpg" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../posts/2022-09-05-pink-parabolas/index.html">
+<h3 class="no-anchor listing-title">
+Pink Parabolas Make For the Merriest Mathematics
+</h3>
+<div class="listing-subtitle">
 
-</main> <!-- /main -->
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('math'); return false;">
+math
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('colors'); return false;">
+colors
+</div>
+</div>
+<a href="../posts/2022-09-05-pink-parabolas/index.html">
+<div class="listing-description">
+<p>Find the area of segments of pink parabolas.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/2022-09-05-pink-parabolas/index.html">
+<div class="listing-date">
+Sep 5, 2022
+</div>
+<div class="listing-author">
+Homer White
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="soda pop,opinionated,rank" data-listing-date-sort="1606539600000" data-listing-file-modified-sort="1701201783681" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<div class="thumbnail">
+<p><a href="../posts/dr-pepper-ranking/index.html"> <img src="../posts/dr-pepper-ranking/drpepper-pic.png" class="thumbnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="../posts/dr-pepper-ranking/index.html">
+<h3 class="no-anchor listing-title">
+Dr Pepper Flavors Ranked by Women
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('soda pop'); return false;">
+soda pop
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('opinionated'); return false;">
+opinionated
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('rank'); return false;">
+rank
+</div>
+</div>
+<a href="../posts/dr-pepper-ranking/index.html">
+<div class="listing-description">
+<p>23 flavors of Dr Pepper taste tested and ranked!</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="../posts/dr-pepper-ranking/index.html">
+<div class="listing-date">
+Nov 28, 2020
+</div>
+<div class="listing-author">
+Alex Kincer
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

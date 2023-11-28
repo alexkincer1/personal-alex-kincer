@@ -12,7 +12,9 @@ website:
       - href: about.qmd
         text: About
       - href: articles/index.qmd
-        text: Articles 
+        text: Articles
+      - href: posts/index.qmd
+        text: Blog
 
   sidebar:
     - id: Articles
@@ -25,6 +27,15 @@ website:
           href:  articles/article_01.qmd
         - text: "Chpater 6 : Groups"
           href:  articles/article_02.qmd
+        - text: "5 Factor Model of Personality Paper"
+          href:  posts/5-Factor-Model-Personality-Paper/index.qmd
+        - section: "Posts"
+          href: posts/index.qmd
+          contents: "posts/*/*.qmd"
+          sort:
+            - "date desc"
+
+
 
 format:
   html:
@@ -34,6 +45,9 @@ format:
     linkcolor: "#d63384"
     css: styles.css
     toc: true
+    footnotes-hover: true
 
+execute:
+  freeze: true
 
 

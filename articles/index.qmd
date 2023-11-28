@@ -1,5 +1,9 @@
 ---
-title: "Articles"
+title:  "Articles"
+listing:
+  contents: .
+  sort-ui: false
+  filter-ui: false
+  type: table
+  fields: [title]
 ---
-
-Articles on site.

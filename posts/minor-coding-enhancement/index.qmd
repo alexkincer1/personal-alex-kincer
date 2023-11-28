@@ -1,0 +1,60 @@
+---
+title: "Making a Minor Enhancement to Website"
+description: "Using Quarto to change the font color of my website to hot pink!"
+author:
+  - name: Homer White
+date: "2023-11-26"
+categories: [quarto, programming, substantive]
+image: pink.jpg
+---
+
+## Introduction
+
+While working on my Website Warmup for CSC324 at Georgetown College, I did not enjoy looking at a black and white website. So, I used [Quarto website](https://quarto.org/docs/output-formats/html-themes.html) to study actions and color options usuable in VSCODE. 
+
+
+## How I Did It
+
+In your `_quarto.yml` file, get within your format section that indicates all aspects of the layout of your website. All changes to color will be made of half being what you are changing the color of and the second will just be the word color.
+
+```{.yml filename="_quarto.yml"}
+format:
+  html:
+    theme: cosmo
+    mainfont: 1.5rem
+    fontcolor: "#d63384"
+    linkcolor: "#d63384"
+    css: styles.css
+    toc: true
+    footnotes-hover: true
+```
+
+Then make footenotes, like this:
+
+```
+Lorem ipsum dolor sit amet, consectetur 
+adipiscing elit.[^2]Nullam pulvinar sem 
+quis maximus condimentum. 
+Aliquam volutpat velit arcu, 
+ut blandit erat 
+iaculis quis.[^3]
+
+[^2]: Here is a footnote.
+
+[^3]: Here is the next footnote.
+```
+
+They will appear as desired:
+
+>Lorem ipsum dolor sit amet, consectetur adipiscing elit.[^2]
+Nullam pulvinar sem quis maximus condimentum. Aliquam volutpat velit arcu, ut blandit erat iaculis quis.[^3]
+
+[^2]: Here is a footnote.
+
+[^3]: Here is the next footnote.
+
+## Sources
+
+* [Pink Photo](https://th.bing.com/th/id/R.0a6016dc3cdc6370116bf0a551f844d5?rik=vHtdSYZY3agBpg&riu=http%3a%2f%2fwww.solidbackgrounds.com%2fimages%2f2560x1440%2f2560x1440-deep-pink-solid-color-background.jpg&ehk=lgUAjJZjmpptJxkQlIpbpkcAyyCqHy04QgOWYqiwEZ4%3d&risl=&pid=ImgRaw&r=0)
+
+* [Quarto Website](https://quarto.org/docs/output-formats/html-themes.html)
