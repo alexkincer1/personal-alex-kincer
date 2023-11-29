@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Alex Kincer">
+<meta name="description" content="How could it affect a college athlete?">
 
-<title>Alex Kincer’s Website Warmup - Chapter 04 : The Sum of Range</title>
+<title>Alex Kincer’s Website Warmup - What is Resilience?</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -142,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../articles/article_01.html">Chapter 4 : The Sum of Range</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../articles/article_01.html">What is Resilience?</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -157,25 +125,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../articles/article_01.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Chapter 4 : The Sum of Range</span></a>
+ <span class="menu-text">What is Resilience?</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../articles/article_02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Chpater 6 : Groups</span></a>
+ <span class="menu-text">The Days in the Life of a High School Junior during a Global Pandemic</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../articles/article_03.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Major Website Enhancement</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../posts/5-Factor-Model-Personality-Paper/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Psychology Personality Paper</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -229,13 +191,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction-to-the-problem" id="toc-introduction-to-the-problem" class="nav-link active" data-scroll-target="#introduction-to-the-problem">Introduction to the Problem</a></li>
-  <li><a href="#generating-the-range" id="toc-generating-the-range" class="nav-link" data-scroll-target="#generating-the-range">Generating the Range</a></li>
-  <li><a href="#step-one-creating-the-array" id="toc-step-one-creating-the-array" class="nav-link" data-scroll-target="#step-one-creating-the-array">Step One : Creating the Array</a></li>
-  <li><a href="#step-two-return-close" id="toc-step-two-return-close" class="nav-link" data-scroll-target="#step-two-return-close">Step Two : Return &amp; Close</a></li>
-  <li><a href="#step-three-beginning-the-next-function" id="toc-step-three-beginning-the-next-function" class="nav-link" data-scroll-target="#step-three-beginning-the-next-function">Step Three : Beginning the Next Function</a></li>
-  <li><a href="#final-step-returning-the-total" id="toc-final-step-returning-the-total" class="nav-link" data-scroll-target="#final-step-returning-the-total">Final Step : Returning the Total</a></li>
-  <li><a href="#full-code" id="toc-full-code" class="nav-link" data-scroll-target="#full-code">Full Code</a></li>
+  <li><a href="#what-does-resilience-really-mean" id="toc-what-does-resilience-really-mean" class="nav-link active" data-scroll-target="#what-does-resilience-really-mean">What does Resilience Really Mean?</a></li>
+  <li><a href="#what-happened-when-i-persevered" id="toc-what-happened-when-i-persevered" class="nav-link" data-scroll-target="#what-happened-when-i-persevered">What happened when I persevered?</a></li>
+  <li><a href="#what-about-when-i-dont-push-through" id="toc-what-about-when-i-dont-push-through" class="nav-link" data-scroll-target="#what-about-when-i-dont-push-through">What about when I don’t push through?</a></li>
+  <li><a href="#are-there-any-practices-for-building-resilience" id="toc-are-there-any-practices-for-building-resilience" class="nav-link" data-scroll-target="#are-there-any-practices-for-building-resilience">Are there any practices for building resilience?</a></li>
+  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
   </ul>
 </nav>
     </div>
@@ -244,13 +204,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapter 04 : The Sum of Range</h1>
+<h1 class="title">What is Resilience?</h1>
 </div>
 
+<div>
+  <div class="description">
+    How could it affect a college athlete?
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Alex Kincer </p>
+          </div>
+  </div>
     
   
     
@@ -259,94 +230,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="introduction-to-the-problem" class="level3">
-<h3 class="anchored" data-anchor-id="introduction-to-the-problem">Introduction to the Problem</h3>
-<p>The introduction of the Eloquent Javascript book frequently calls attention to objects and arrays. Chapter 4 discusses the properties within these subjects and indirectly expemplifies how to compute the sum of a range of numbers:</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>console.log(sum(range(1, 10)));</strong></pre>
-</div>
-<pre><code></code></pre>
-</div>
-<blockquote class="blockquote">
-<p>Write a range function that takes two arguments, start and end, and returns an array containing all the numbers from start up to (and including) end.</p>
-<p>Next, write a sum function that takes an array of numbers and returns the sum of these numbers. Run the example program and see whether it does indeed return 55.</p>
-<pre><code></code></pre>
-<p>Here are a few hints to help the viewer figure out the problem:</p>
+<section id="what-does-resilience-really-mean" class="level3">
+<h3 class="anchored" data-anchor-id="what-does-resilience-really-mean">What does Resilience Really Mean?</h3>
+<p>Resilience in the light of stress is the ability to handle and push through adversities full of stress, trauma, and hardships. By building resilience, a person can improve their social qualities, improve achievements, and cause better outcomes under pressure. Overall, resilience plays a significant role in personal growth and achievements.</p>
+</section>
+<section id="what-happened-when-i-persevered" class="level3">
+<h3 class="anchored" data-anchor-id="what-happened-when-i-persevered">What happened when I persevered?</h3>
+<p>Being a member of the Georgetown College cheer team, over the course of summer break 2023, I was given strength-based workouts to become a stronger base for the competition team. So, after completing all the workouts and gaining around 10lbs of muscle, I walked into the first practice session of the year and my coach decided that we needed another flyer to go in the air. After looking at the team, Coach Joanie announced that she thinks I should be the next flyer to go in the air, even though I had put in all of the effort to be a base over the summer. I hadn’t been put up since I was in middle school and had gained at least 30lbs since then as well. However, due to being on scholarship and trying to be a team player, I agreed and attempted. Though I had been put in a stressful situation full of the adversities between me and the rest of the girls that had been flying their entire lives, I pushed through using resilience and ended up making the competition team as a first-time flyer and out-performed 3 other flyers. This situation caused a lot of stress to be put on me and put my body and mental health through very many hardships and battles. However, pushing through gave me the best outcome I could’ve gotten, and I will continue to build my resilience and overcome such battles.</p>
+</section>
+<section id="what-about-when-i-dont-push-through" class="level2">
+<h2 class="anchored" data-anchor-id="what-about-when-i-dont-push-through">What about when I don’t push through?</h2>
+<p>Though resilience building seems to be an easy thing to achieve with all the negative things in the world today, many situations can have an alternate route that is more of an easy-way-out. For example, I started the Fall 2023 semester taking 15 credit hours, and only needing 10 passing hours to be eligible for competitive cheer. With this frame of wiggle room for classes, I began to fall behind and get very poor grades in History of Christianity. Instead of challenging myself to succeed by pushing through, I dropped the course to stay eligible and continue my competition season. This scape goat of dropping the course did not build resilience, but rather showed me that the easier ways out can also be beneficial in the moment, such as eligibility, but could also render your success, as to the fact that I will still be required to take another religion course to graduate from Georgetown.</p>
+</section>
+<section id="are-there-any-practices-for-building-resilience" class="level2">
+<h2 class="anchored" data-anchor-id="are-there-any-practices-for-building-resilience">Are there any practices for building resilience?</h2>
+<p>With resilience being able to be utilized in almost every stressful corner of life, simple steps can be taken to aid this action. Simple things such as asking for help from support systems to complete goals, staying focused, and believing in yourself are some of the easiest things you can do to build yourself up. In addition, building peers up with constant support, encouraging words, or having their back when they need a boost or shoulder to cry on to let it all out and keep moving forward can build resilience in seconds. In conclusion, resilience is a phenomenal quality to have when working towards success and there are so many things that will move you and others towards their goals and make everyone’s lives easier with having so much of it to use!</p>
+</section>
+<section id="sources" class="level2">
+<h2 class="anchored" data-anchor-id="sources">Sources</h2>
 <ul>
-<li><p>Building up an array is most easily done by first initializing a binding to [] (a fresh, empty array) and repeatedly calling its push method to add a value. Don’t forget to return the array at the end of the function.</p></li>
-<li><p>Since the end boundary is inclusive, you’ll need to use the &lt;= operator rather than &lt; to check for the end of your loop.</p></li>
-<li><p>The step parameter can be an optional parameter that defaults (using the = operator)to 1.</p></li>
-<li><p>Having range understand negative step values is probably best done by writing two separate loops—one for counting up and one for counting down—because the comparison that checks whether the loop is finished needs to be &gt;= rather than &lt;= when counting downward.</p></li>
-<li><p>It might also be worthwhile to use a different default step, namely, -1, when the end of the range is smaller than the start. That way, range(5, 2) returns something meaningful, rather than getting stuck in an infinite loop. It is possible to refer to previous parameters in the default value of a parameter.</p></li>
+<li><a href="https://www.health.harvard.edu/mind-and-mood/ramp-up-your-resilience">Definiton of Resilience</a></li>
 </ul>
-</blockquote>
-<p>In the remainder of the article we provide a detailed explanation of the solution-code.</p>
-</section>
-<section id="generating-the-range" class="level3">
-<h3 class="anchored" data-anchor-id="generating-the-range">Generating the Range</h3>
-<p>When specifying three integers as range (start, stop, step), it generates a series of numbers start &lt;= i &lt; stop, increasing by step. If you provide a negative value for the step argument, the sequence will decrease.</p>
-<p><code>{function range(start, end, step = start &lt; end ? 1 : -1)}</code></p>
-</section>
-<section id="step-one-creating-the-array" class="level3">
-<h3 class="anchored" data-anchor-id="step-one-creating-the-array">Step One : Creating the Array</h3>
-<p>The let declaration declares re-assignable, block-scoped local variables, optionally initializing each to a value. In JavaScript, arrays aren’t primitives but are instead Array objects with the following core characteristics: JavaScript arrays are resizable and can contain a mix of different data types.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> array <span class="op">=</span> []<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>We can now apply the if else function :</p>
-<p>Use the if statement to specify a block of JavaScript code to be executed if a condition is true. Use the else statement to specify a block of code to be executed if the condition is false.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span> (step <span class="op">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> start<span class="op">;</span> i <span class="op">&lt;=</span> end<span class="op">;</span> i <span class="op">+=</span> step) array<span class="op">.</span><span class="fu">push</span>(i)<span class="op">;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> start<span class="op">;</span> i <span class="op">&gt;=</span> end<span class="op">;</span> i <span class="op">+=</span> step) array<span class="op">.</span><span class="fu">push</span>(i)<span class="op">;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The above information from the If else function will then be returned to create the arrays beginning.</p>
-</section>
-<section id="step-two-return-close" class="level3">
-<h3 class="anchored" data-anchor-id="step-two-return-close">Step Two : Return &amp; Close</h3>
-<p>The return statement is used when a function is ready to return a value to its caller. A } bracket is entered at the end of the code to draw an imaginary line at the end of the coding sequence. This makes sure to keep the things that go together, together.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> array<span class="op">;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="step-three-beginning-the-next-function" class="level3">
-<h3 class="anchored" data-anchor-id="step-three-beginning-the-next-function">Step Three : Beginning the Next Function</h3>
-<p>The SUM function is a mathematical function that totals the values supplied to it. These values can be numbers, cell references, ranges, arrays, or constants. The function can handle up to 255 individual arguments. The SUM function ignores records that contain Null fields. The function is entered by typing =SUM followed by the values to be summed. Adding the ‘(array)’ after the SUM call, indicates that the array will be what the call is applied to.</p>
-<p>You then place a “{” to open up the coding area for what is to come after to complete this problem.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">sum</span>(array) {</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>We now apply another ‘let’ call and add the ‘for’ function :</p>
-<p>In JavaScript, the for statement is used to execute a block of code repeatedly. The for loop has three optional expressions: initialization, condition, and final-expression.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> total <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> value <span class="kw">of</span> array) {</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    total <span class="op">+=</span> value<span class="op">;</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The += operator in JavaScript is called the addition assignment operator. It performs addition on the two operands and assigns the result to the left operand. The expression x += y is equivalent to x = x + y, except that the expression x is only evaluated once. The operator can perform either numeric addition or string concatenation, depending on the types of the operands.</p>
-</section>
-<section id="final-step-returning-the-total" class="level3">
-<h3 class="anchored" data-anchor-id="final-step-returning-the-total">Final Step : Returning the Total</h3>
-<p>One by one, we piece each chunk of coding together and, finally, we return the total value:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> total<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>We are done!</p>
-</section>
-<section id="full-code" class="level3">
-<h3 class="anchored" data-anchor-id="full-code">Full Code</h3>
-<p>The following code is the full code to “The Range of Sum” put together.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">range</span>(start<span class="op">,</span> end<span class="op">,</span> step <span class="op">=</span> start <span class="op">&lt;</span> end <span class="op">?</span> <span class="dv">1</span> <span class="op">:</span> <span class="op">-</span><span class="dv">1</span>) {</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> array <span class="op">=</span> []<span class="op">;</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (step <span class="op">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> start<span class="op">;</span> i <span class="op">&lt;=</span> end<span class="op">;</span> i <span class="op">+=</span> step) array<span class="op">.</span><span class="fu">push</span>(i)<span class="op">;</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> start<span class="op">;</span> i <span class="op">&gt;=</span> end<span class="op">;</span> i <span class="op">+=</span> step) array<span class="op">.</span><span class="fu">push</span>(i)<span class="op">;</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> array<span class="op">;</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">sum</span>(array) {</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> total <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> value <span class="kw">of</span> array) {</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    total <span class="op">+=</span> value<span class="op">;</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> total<span class="op">;</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

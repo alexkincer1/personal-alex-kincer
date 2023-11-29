@@ -1,8 +1,8 @@
 ---
 title: "Making a Minor Enhancement to Website"
-description: "Using Quarto to change the font color of my website to hot pink!"
+description: "This is how I made this website's text you are reading hot pink!"
 author:
-  - name: Homer White
+  - name: Alex Kincer
 date: "2023-11-26"
 categories: [quarto, programming, substantive]
 image: pink.jpg

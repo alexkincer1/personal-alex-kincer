@@ -23,14 +23,12 @@ website:
       background: light
       collapse-level: 2
       contents: 
-        - text: "Chapter 4 : The Sum of Range"
+        - text: "What is Resilience?"
           href:  articles/article_01.qmd
-        - text: "Chpater 6 : Groups"
+        - text: "The Days in the Life of a High School Junior during a Global Pandemic"
           href:  articles/article_02.qmd
         - text: "Major Website Enhancement"
           href:  articles/article_03.qmd
-        - text: "5 Factor Model of Personality Paper"
-          href:  posts/5-Factor-Model-Personality-Paper/index.qmd
         - section: "Posts"
           href: posts/index.qmd
           contents: "posts/*/*.qmd"
