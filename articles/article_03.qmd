@@ -1,0 +1,44 @@
+---
+title: Major Enhancement to Website
+---
+
+## The Enhancment
+
+When making my personal website, I was given the prompt to make a major enhancement to any portion of it. So, my enhancement is to the Psychology Personality Paper Blog. When deciding to take my Psychology paper and turn it into a blog post, the first problem I had was caused by simply copying and pasting the entire essay into VSCODE. When I did this, my essay was not formatted correctly in the slightest. 
+
+## The Essay Prompt
+
+Take this five-factor model personality test. Go to the following website: http://www.personalitytest.net/ipip/ipipneo1.htm and choose the ORIGINAL IPEP (not the short version). Take the test and then save your results. Please do NOT turn in all the results – these are for your use when writing your paper.
+
+ 
+You DO need to make a single page list of your scores for each of the five factors and their subfactors. Attach this list as the last page of your paper, after the References page.
+
+
+We will be discussing several personality theories in class, including Costa and McCrae’s Five Factor Model. Your paper should include:
+
+A description of Costa and McCrae’s Five Factor Model of personality with definitions of each of the 5 factors.
+A discussion of your results including the following:
+ You should discuss whether you think the results are accurate or not. Use  examples to back up your opinions. For example, if the results say you are very neat and tidy, but you disagree, you might say that your dorm room looks like a hurricane blew through last night and your car is infested by ants because you leave opened food containers in there. (Get the picture)?
+ 
+
+Your paper needs to be a minimum of 500 words in length. It should be typed, double-spaced, and use 12 point Times New Roman font. Your paper must include an APA formatted title page, the body of your paper, and a references page. You will need to use at least 3 scholarly sources in your paper including your textbook, the online personality test, and at least one other of your choosing. The paper needs to follow APA formatting for the title page, in-text citations, and references page. You do not need to include an abstract. You may not use any direct quotes. Upload your paper to Canvas in .docx format. Other formats will not be accepted.
+
+ 
+## The Coding Issue
+
+As stated in the prompt, I needed to list my test scores by the sections of the 5 Factor Personality Test. When doing the the copy and pasting, it caused my scores to be in a line like this: 
+
+<img src="/images/Scores screenshot.png"  class="float: center" width = 500>
+
+
+## How Did I Fix it?
+
+Using my in-classed learned information for formatting the website I was making, I made the decision and edits to add ``` and * to not only bolden the sections and bullet point them, but to also format the scores into a more table-like paragraph that I had created in my original essay. By doing this, my 5 titles were showcases properly, and my scores were blackened to stick out and get my numbers across for each portions of the sections. After making these adjustments, my scores list ended up looking like this:
+
+<img src="/images/Scores screenshot2.png"  class="float: center" width = 200>
+
+
+## Conclusion
+
+This major enhancement took around an hour of trial and error to accomplish, but made me very successfull in my paper publishing article. 
+

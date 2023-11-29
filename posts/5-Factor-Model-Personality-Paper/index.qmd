@@ -4,7 +4,7 @@ description: "A description of my personality based on the Five Factor Model."
 author:
   - name: Alex Kincer
 date: "2023-10-02"
-categories: [psychology, IPEP test, personality]
+categories: [psychology, IPEP test, personality, substantive]
 image: 5FactorModel.png
 
 ---
@@ -16,7 +16,8 @@ image: 5FactorModel.png
       Dr. Rebecca Singer
       October 2, 2023
 
- 
+
+
 
   According to Costa and McCrae’s Five Factor Model of Personality includes factors such as openness to 
   experiences, consciousness, extraversion, agreeableness, and neuroticism. (Lim) These factors come together to 
@@ -107,8 +108,4 @@ Vulnerability.........51
 ## Sources
 
 * [5 Factor Model Photo](https://logwrangler.com/northland/costa-and-mccrae-big-five-pdf.php)
-
-
-
-
 

@@ -15,7 +15,21 @@ While working on my Website Warmup for CSC324 at Georgetown College, I did not e
 
 ## How I Did It
 
-In your `_quarto.yml` file, get within your format section that indicates all aspects of the layout of your website. All changes to color will be made of half being what you are changing the color of and the second will just be the word color.
+In your `_quarto.yml` file, get within your format section that indicates all aspects of the layout of your website. The first options I chose to use were "fontcolor" that sets the default color of all texts in the documents being showcased in the website. The second option I chose was "linkcolor" which sets the default color of all the hyperlinks being placed within the text.
+
+```{.yml filename="_quarto.yml"}
+format:
+  html:
+    theme: cosmo
+    mainfont: 1.5rem
+    fontcolor: 
+    linkcolor: 
+    css: styles.css
+    toc: true
+    footnotes-hover: true
+```
+
+Then I chose the shade of pink I wanted to use - "#d63384" - and entered it after the colon to assign it.
 
 ```{.yml filename="_quarto.yml"}
 format:
@@ -29,29 +43,7 @@ format:
     footnotes-hover: true
 ```
 
-Then make footenotes, like this:
-
-```
-Lorem ipsum dolor sit amet, consectetur 
-adipiscing elit.[^2]Nullam pulvinar sem 
-quis maximus condimentum. 
-Aliquam volutpat velit arcu, 
-ut blandit erat 
-iaculis quis.[^3]
-
-[^2]: Here is a footnote.
-
-[^3]: Here is the next footnote.
-```
-
-They will appear as desired:
-
->Lorem ipsum dolor sit amet, consectetur adipiscing elit.[^2]
-Nullam pulvinar sem quis maximus condimentum. Aliquam volutpat velit arcu, ut blandit erat iaculis quis.[^3]
-
-[^2]: Here is a footnote.
-
-[^3]: Here is the next footnote.
+This is how I made this website you are reading's text hot pink!
 
 ## Sources
 

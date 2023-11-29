@@ -27,6 +27,8 @@ website:
           href:  articles/article_01.qmd
         - text: "Chpater 6 : Groups"
           href:  articles/article_02.qmd
+        - text: "Major Website Enhancement"
+          href:  articles/article_03.qmd
         - text: "5 Factor Model of Personality Paper"
           href:  posts/5-Factor-Model-Personality-Paper/index.qmd
         - section: "Posts"
